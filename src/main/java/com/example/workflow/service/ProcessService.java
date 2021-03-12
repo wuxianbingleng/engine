@@ -57,19 +57,22 @@ public class ProcessService {
         // todo: resourceName modify to unique value;
         String path = Thread.currentThread().getContextClassLoader().getResource("").getPath()+ "/" + resourceName;
 
+        System.out.println("path =" + path);
         File tempFile = new File(path);
 
         try {
             file.transferTo(tempFile);
+
         } catch (IOException e){
             e.printStackTrace();
+            throw new DefinitionException(500, "文件创建错误");
         }
         Map<String, Object> map = null;
         try {
             map = Tool.parseBpmnParams(tempFile);
-            System.out.println(map);
         } catch (Exception e){
             e.printStackTrace();
+            throw new DefinitionException(500, "xml 解析出错");
         }
         assert resourceName != null;
         String deployName = resourceName.substring(0, resourceName.lastIndexOf("."));
