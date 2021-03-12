@@ -148,8 +148,7 @@
       <!-- docker插件 -->
       <plugin>
         <groupId>com.spotify</groupId>
-        <artifactId>docker-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <artifactId>dockerfile-maven-plugin</artifactId>
         <configuration>
           <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
           <dockerDirectory>src/main/docker</dockerDirectory>
@@ -161,12 +160,6 @@
             </resource>
           </resources>
         </configuration>
-      </plugin>
-
-
-      <plugin>
-        <groupId>com.spotify</groupId>
-        <artifactId>dockerfile-maven-plugin</artifactId>
         <dependencies>
           <dependency>
             <groupId>javax.activation</groupId>
@@ -175,6 +168,9 @@
           </dependency>
         </dependencies>
       </plugin>
+
+
+
     </plugins>
   </build>
 
