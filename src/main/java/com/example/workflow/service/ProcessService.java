@@ -100,11 +100,10 @@ public class ProcessService {
 
     public List<String> getVariablesByKey(String processDefinitionKey){
         // 表单参数list
-        List<String> list = new ArrayList<>();
         ProcessVariable processVariable = processVariableMapper.getOne(processDefinitionKey);
         String variables = processVariable.getVariables();
         String[] variableList = variables.split(",");
-        list.addAll(Arrays.asList(variableList));
+        List<String> list = new ArrayList<>(Arrays.asList(variableList));
         // 外部任务参数list
         List<ProcessTopic> processTopics = processTopicMapper.getAll(processDefinitionKey);
 

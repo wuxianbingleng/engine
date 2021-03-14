@@ -21,9 +21,6 @@ import java.util.regex.Pattern;
 @Service
 public class Tool {
 
-    @Autowired
-    private TaskVariableMapper taskVariableMapper;
-
     public static Map<String, Object> parseBpmnParams(File file) throws Exception {
         Map<String,Integer> startVariables = new HashMap();
         Map<String,Integer> localVariables = new HashMap();
