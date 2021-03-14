@@ -7,10 +7,10 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface ProcessVariableMapper {
 
-    @Select("SELECT * FROM act_re_proc_variable WHERE `processDefinitionKey` = #{processDefinitionKey}")
+    @Select("SELECT * FROM ACT_RE_PROC_VARIABLE WHERE `processDefinitionKey` = #{processDefinitionKey}")
     @Results()
     ProcessVariable getOne(String processDefinitionKey);
 
-    @Insert("insert into act_re_proc_variable values(#{processDefinitionKey}, #{variables}) on duplicate key update variables = #{variables}")
+    @Insert("insert into ACT_RE_PROC_VARIABLE values(#{processDefinitionKey}, #{variables}) on duplicate key update variables = #{variables}")
     Integer findOrCreate(@Param("processDefinitionKey")String processDefinitionKey, @Param("variables")String variables);
 }

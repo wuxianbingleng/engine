@@ -7,12 +7,12 @@ import java.util.List;
 @Mapper
 public interface TopicMapper {
 
-    @Select("select * from act_re_topic where topic = #{topic}")
+    @Select("select * from ACT_RE_TOPIC where topic = #{topic}")
     Topic<String> getOne(String topic);
 
-    @Select("select * from act_re_topic")
+    @Select("select * from ACT_RE_TOPIC")
     List<Topic<String>> getAll();
 
-    @Insert("insert into act_re_topic values(#{topic},#{name},#{input}) on duplicate key update `name` = #{name},`input` = #{input}")
+    @Insert("insert into ACT_RE_TOPIC values(#{topic},#{name},#{input}) on duplicate key update `name` = #{name},`input` = #{input}")
     Integer insert(@Param("topic")String topic,@Param("name")String name,@Param("input")String input);
 }

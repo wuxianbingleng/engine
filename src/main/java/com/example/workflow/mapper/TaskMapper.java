@@ -11,7 +11,7 @@ public interface TaskMapper {
     @Select("select " +
             "ID_ `id`,PROC_DEF_ID_ processDefinitionId,CREATE_TIME_ createTime, TASK_DEF_KEY_ taskDefinitionKey" +
             ",NAME_ `name`,PROC_INST_ID_ processInstanceId, ASSIGNEE_ userId" +
-            " from act_ru_task " +
+            " from ACT_RU_TASK " +
             " where PROC_DEF_ID_ = #{processDefinitionId} and ASSIGNEE_ = #{userId}")
     List<Task> getAll(@Param("processDefinitionId")String processDefinitionId, @Param("userId")String userId);
 
@@ -19,7 +19,7 @@ public interface TaskMapper {
     @Select("select " +
             "ID_ `id`,PROC_DEF_ID_ processDefinitionId,CREATE_TIME_ createTime, TASK_DEF_KEY_ taskDefinitionKey" +
             ",NAME_ `name`,PROC_INST_ID_ processInstanceId, ASSIGNEE_ userId" +
-            " from act_ru_task " +
+            " from ACT_RU_TASK " +
             " where ID_ = #{taskId}")
     Task getOne(String taskId);
 }

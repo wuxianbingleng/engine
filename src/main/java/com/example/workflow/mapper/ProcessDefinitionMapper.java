@@ -9,16 +9,16 @@ import java.util.List;
 public interface ProcessDefinitionMapper {
 
 
-    @Select("SELECT ID_ `id`,KEY_ `key`,NAME_ `name`,DEPLOYMENT_ID_ `deploymentId` FROM act_re_procdef")
+    @Select("SELECT ID_ `id`,KEY_ `key`,NAME_ `name`,DEPLOYMENT_ID_ `deploymentId` FROM ACT_RE_PROCDEF")
     @Results()
     List<ProcessDefinition> getAll();
 
-    @Select("SELECT ID_ `id`,KEY_ `key`,NAME_ `name`,DEPLOYMENT_ID_ `deploymentId` FROM act_re_procdef WHERE DEPLOYMENT_ID_ = #{deploymentId}")
+    @Select("SELECT ID_ `id`,KEY_ `key`,NAME_ `name`,DEPLOYMENT_ID_ `deploymentId` FROM ACT_RE_PROCDEF WHERE DEPLOYMENT_ID_ = #{deploymentId}")
     @Results()
     ProcessDefinition getOneByDeploymentId(String deploymentId);
 
     @Select("SELECT ID_ `id`,KEY_ `key`,NAME_ `name`,DEPLOYMENT_ID_ `deploymentId` " +
-            "FROM act_re_procdef WHERE KEY_ = #{processDefinitionKey} order by VERSION_ desc limit 1")
+            "FROM ACT_RE_PROCDEF WHERE KEY_ = #{processDefinitionKey} order by VERSION_ desc limit 1")
     @Results()
     ProcessDefinition getOne(String processDefinitionKey);
 
