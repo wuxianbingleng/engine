@@ -1,12 +1,10 @@
 package com.example.workflow.service;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.example.workflow.camunda.Tool;
 import com.example.workflow.entity.*;
 import com.example.workflow.exception.DefinitionException;
 import com.example.workflow.mapper.*;
-
 import org.camunda.bpm.engine.RepositoryService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.repository.Deployment;
@@ -19,8 +17,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class ProcessService {
@@ -87,6 +83,7 @@ public class ProcessService {
         processVariableMapper.findOrCreate(processDefinition.getKey(), (String) map.get("variables"));
 
         Map<String, Integer> topics = (Map<String, Integer>) map.get("topics");
+
         for(String k: topics.keySet()){
             processTopicMapper.findOrCreate(processDefinition.getKey(), k);
         }
